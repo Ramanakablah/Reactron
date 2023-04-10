@@ -1,0 +1,33 @@
+.Intro3{
+    height: 100vh;
+    width:100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+}
+
+.Heading{
+    font-size: 4rem;
+    width: 100%;
+    text-align: right;
+}
+
+.Intro3_Left{
+    flex-basis: 250px;
+    flex-grow: 0.6;
+    font-family: 'Petit Formal Script', cursive;
+    padding: 0 10% 0 10%;
+    word-spacing: 10px;
+    font-size: 1.2rem;
+}
+
+.Intro3_Right{
+    flex-basis: 400px;
+    flex-grow: 1;
+}
+
+.Intro3_Right img{
+    object-fit: contain;
+    width: 100%;
+}

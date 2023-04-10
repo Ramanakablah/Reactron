@@ -1,0 +1,75 @@
+.Intro1{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-type: mandatory;
+    scroll-snap-align: start;
+    /* background-color: blue; */
+}
+
+.Intro1_Left{
+    flex-basis: 250px;
+    flex-grow: 0.6;
+    font-size: 1.2rem;
+    padding: 0 0 0 10%;
+    font-family: 'Petit Formal Script', cursive;
+    word-spacing: 10px;
+    font-weight: 600;
+}
+
+.Heading{
+    width: 100%;
+    text-align: right;
+    font-size: 4rem;
+    position: relative;
+    isolation: isolate;
+}
+
+.Heading::before{
+    content: "";
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    top: 35%;
+    height: 15%;
+    width: 100%;
+    background: orange;
+    transform: skewX(40deg);
+}
+
+.Heading::after{
+    content: "";
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    height: 15%;
+    width: 100%;
+    background: orange;
+    transform: skew(-40deg);
+}
+
+
+.Intro1_Right{
+    flex-basis: 200px;
+    flex-grow: 0.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Intro1_Right img{
+    object-fit: contain;
+    width: 40vw;
+    height: 100%;
+    aspect-ratio: 4/2;
+}
+
+.Signature{
+    transform: rotate(-10deg);
+    font-family: 'Miss Fajardose', cursive;
+    font-size: 5rem;
+}

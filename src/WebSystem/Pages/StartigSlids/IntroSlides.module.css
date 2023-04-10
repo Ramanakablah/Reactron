@@ -1,0 +1,9 @@
+.IntroSlides{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: max-content;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
