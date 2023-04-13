@@ -1,8 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react'
 import style from "./Login.module.css"
 import Button from '../../Widgets/Button/Button.jsx'
+import { useNavigate } from 'react-router-dom'
+
 
 const Login = () => {
+
+    const navigate = useNavigate();
 
     const [LoginObject, setLoginobject] = useState({
         username: "",
@@ -67,7 +71,7 @@ const Login = () => {
                         <Button
                             text={"Submit"}
                             category={"Success"}
-                            Operation={() => { console.log(LoginObject) }}
+                            Operation={() => { console.log(LoginObject); navigate("/timers") }}
                         />
                         <Button
                             text={"Reset"}
