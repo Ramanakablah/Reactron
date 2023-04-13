@@ -1,32 +1,39 @@
 import React from 'react'
 import style from "./TimerScreen.module.css"
 import Marathon from "../../../Assets/Images/Runner.jpeg"
+import Relay from "../../../Assets/Images/Focusrelay.jpeg"
+import Zen from "../../../Assets/Images/Zen.jpeg"
+import Clock from "../../../Assets/Images/Clock.jpeg"
+import { Link } from 'react-router-dom'
 
-const TimeCard = ({img})=>{
-   return (<>
-   <div className={style.TimeCard_Body}>
-    <div className={style.Body_Image}>
-      <img src={img} alt="" />
+const TimeCard = ({ img, name,color }) => {
+  return (<Link to={"/timeto/focusathon"}>
+    <div className={style.TimeCard_Body}>
+      <div className={style.Body_Image}>
+        <img src={img} alt="" />
+      </div>
+      <div className={style.Body_Title} style={{backgroundColor:`${color}`}}>
+        <div className={style.Title_Name}>{name}</div>
+        <div className={style.Info} ><i className="fa-solid fa-ellipsis-vertical"></i></div>
+      </div>
     </div>
-    <div className={style.Body_Title}>
-      <div className={style.Title_Name}></div>
-      <div className={style.Info}></div>
-    </div>
-   </div>
-   
-   </>)
+  </Link>)
 }
 
 
 const TimerScreen = () => {
   return (<div className={style.Timescreen}>
-     <div className={style.Welcome}>
+    <div className={style.Welcome}>
       Welcome
-     </div>
-     <div className={style.Time_Option_Wrappers}>
-    <TimeCard img={"https://img.freepik.com/free-vector/runner-flames-flat-style_52683-16316.jpg?w=740&t=st=1681352935~exp=1681353535~hmac=830d47b989594b9836b474e565e16db8a656369481d1a0f94dfe901476be0efb"}/>
-     </div>
     </div>
+    <p> Choose your Mode </p>
+    <div className={style.Time_Option_Wrappers}>
+      <TimeCard img={Marathon} name={"Focus A thon"} color={"#d44202"} />
+      <TimeCard img={Relay} name={"Focus Relay"} color={"#3a81af"} />
+      <TimeCard img={Zen} name={"Zen mode"} color={"#fdc558"} />
+      <TimeCard img={Clock} name={"Time Race"} color={"#3b3f42"} />
+    </div>
+  </div>
   )
 }
 

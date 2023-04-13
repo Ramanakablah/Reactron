@@ -1,0 +1,78 @@
+.Timescreen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.TimeCard_Body{
+    cursor: pointer;
+    width: 200px;
+    aspect-ratio: 1/1.3;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 5px;
+    border: solid 1px rgb(176, 170, 170);
+}
+
+.Welcome{
+    font-weight: 400;
+    font-size: 4rem;
+    margin: 1rem 0;
+    font-family: 'Miss Fajardose', cursive;
+}
+
+.Body_Image{
+    width: 100%;
+    height: 84%;
+    overflow: hidden;
+}
+
+.Body_Image img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    transition: all 1ms ;
+}
+
+.Body_Title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 5px;
+}
+
+.Info{
+    width: 30px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.Info:hover{
+    background: rgba(255, 255, 255, 0.197);
+}
+
+.Time_Option_Wrappers{
+  display: grid;
+  grid-template-columns: repeat(2,minmax(200px,1fr));
+  gap: 1.2rem;
+}
+
+.Time_Option_Wrappers:nth-child(2){
+    grid-column: span 2;
+}
+
+.TimeCard_Body:hover .Body_Image img{
+   transform: scale(1.1);
+}
+
+.Time_Option_Wrappers a{
+    text-decoration: none;
+}
