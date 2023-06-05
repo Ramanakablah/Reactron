@@ -1,18 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import style from "./FocusMarathon.module.css"
-import Button from '../../../Widgets/Button/Button.jsx'
+import Timelist from '../../PreviousTimelists/Timelist'
+import Clock from '../../Clocks/MarathonClock/Clock'
+import { Link } from 'react-router-dom'
 
 const FocusMarathon = () => {
-  
   return (
     <div className={style.FocusMarathon}>
-     <div className={style.TimeDisplay} id={"FocusathonTime"}>
-      <div className={style.Focus_Hours}></div>
-      <div className={style.Focus_Minutes}></div>
-      <div className={style.Focus_Seconds}></div>
-     </div>
-     <div className={style.Clock_Buttons}><Button text={"Clock In"} category={"Warm"} /> <Button text={"Take a break"}/></div>
-
+      <Link to={"/timers"}> <div className={style.Return}> Back </div> </Link> 
+     <Clock/>
+     <Timelist/>
     </div>
   )
 }

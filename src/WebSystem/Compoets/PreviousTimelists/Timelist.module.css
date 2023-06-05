@@ -1,0 +1,5 @@
+.Timelist__list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,450px));
+    gap: 2.6rem;
+}

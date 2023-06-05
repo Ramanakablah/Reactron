@@ -2,19 +2,25 @@ import React, { useEffect, useState, useRef } from 'react'
 import style from "./Login.module.css"
 import Button from '../../Widgets/Button/Button.jsx'
 import { useNavigate } from 'react-router-dom'
+import { userLogin } from '../../APIs/Main/USERS/UserLogin'
 
 
 const Login = () => {
 
     const navigate = useNavigate();
 
-    const [LoginObject, setLoginobject] = useState({
-        username: "",
-        password: ""
-    })
+    const [LoginObject, setLoginobject] = useState(()=>{ 
+        console.log("hey")
+        return {
+        username: "alexesramn909@gmail.com",
+        password: "345678ert"
+    }
+})
+   let x=1;
+   console.log(x++)
 
     const HandleChange = (e) => {
-        setLoginobject({ ...LoginObject, [e.target.name]: e.target.value })
+        setLoginobject( { ...LoginObject, [e.target.name]: e.target.value })
     }
 
     const degreesc = (ex, ey, cx, cy) => {
@@ -71,7 +77,13 @@ const Login = () => {
                         <Button
                             text={"Submit"}
                             category={"Success"}
-                            Operation={() => { console.log(LoginObject); navigate("/timers") }}
+                            Operation={() => {
+                                navigate("/timers") 
+                                // userLogin(LoginObject).then((resp)=>{
+                                    // if(resp.status==="Success"){
+                                    // }
+                                // })
+                                }}
                         />
                         <Button
                             text={"Reset"}

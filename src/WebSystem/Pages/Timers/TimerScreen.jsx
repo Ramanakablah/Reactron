@@ -6,8 +6,8 @@ import Zen from "../../../Assets/Images/Zen.jpeg"
 import Clock from "../../../Assets/Images/Clock.jpeg"
 import { Link } from 'react-router-dom'
 
-const TimeCard = ({ img, name,color }) => {
-  return (<Link to={"/timeto/focusathon"}>
+const TimeCard = ({ img, name,color,Linksto }) => {
+  return (<Link to={`/timeto/${Linksto}`}>
     <div className={style.TimeCard_Body}>
       <div className={style.Body_Image}>
         <img src={img} alt="" />
@@ -28,10 +28,10 @@ const TimerScreen = () => {
     </div>
     <p> Choose your Mode </p>
     <div className={style.Time_Option_Wrappers}>
-      <TimeCard img={Marathon} name={"Focus A thon"} color={"#d44202"} />
-      <TimeCard img={Relay} name={"Focus Relay"} color={"#3a81af"} />
-      <TimeCard img={Zen} name={"Zen mode"} color={"#fdc558"} />
-      <TimeCard img={Clock} name={"Time Race"} color={"#3b3f42"} />
+      <TimeCard img={Marathon} name={"Focus A thon"} color={"#d44202"} Linksto={'focusathon'}/>
+      <TimeCard img={Relay} name={"Focus Relay"} color={"#3a81af"} Linksto={'pomodora'}/>
+      <TimeCard img={Zen} name={"Zen mode"} color={"#fdc558"} Linksto={'pomodora'}/>
+      <TimeCard img={Clock} name={"Time Race"} color={"#3b3f42"} Linksto={'pomodora'}/>
     </div>
   </div>
   )
