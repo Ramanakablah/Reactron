@@ -2,5 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    background: #160027;
+    width: 100vw;
+    min-height: 100vh;
 }

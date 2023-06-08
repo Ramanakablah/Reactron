@@ -16,6 +16,16 @@ switch (category) {
             background : "orange"
         }    
         break ;
+    case "Pois" :
+        styles ={
+            background : "#45007a"
+        }    
+        break ;
+    case "Baby" :
+        styles ={
+            background : "#e76f51"
+        }    
+        break ;
     default:
         styles = {
             background : "skyblue"
