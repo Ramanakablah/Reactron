@@ -1,0 +1,200 @@
+.zenMode{
+    gap: 2rem;
+    width: 100vw;
+    display: flex;
+    color: #021a49;
+    min-height: 100vh;
+    align-items: center;
+    background: #4c89ff;
+    flex-direction: column;
+    box-sizing: content-box;
+    justify-content: flex-start;
+}
+
+.ZenWrapper{
+    display: flex;
+    align-items: stretch;
+    gap: 1.1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ZenMode{
+    flex-basis: 250px;
+    flex-grow: 0.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding:3rem 1rem;
+    border-radius: 14px;
+    background:  #96afe1;
+    transition: all 1s ease;
+    position: relative;
+}
+
+.Info{
+    position: relative;
+}
+
+.Info p{
+    margin: 4px 0;
+    position: absolute;
+    width: 31ch;
+    text-align: justify;
+    font-size: 0.89rem;
+    background: #a5bbe5;
+    border-radius: 12px;
+    padding: 5px;
+    word-spacing: 2px;
+    font-weight: 700;
+    color: #052c7b;
+    z-index: 2;
+}
+
+.Info_Wrapper{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    font-family: 'Petit Formal Script', cursive;
+}
+
+.Enlighting{
+    width: 50%;
+    max-width: 450px;
+    padding: 1rem;
+    display: flex;
+    aspect-ratio: 1;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 50%;
+    transition: all 0.3s;
+    background: radial-gradient(rgb(255, 255, 0)10%,white 0%);
+}
+
+.SagesMessage{
+    max-width: 400px;
+    width: 70%;
+    background:#82a0db;
+    border-radius: 8px;
+    text-align: center;
+    position: absolute;
+    right:-30%;
+}
+
+.SageSitting{
+    width: 90%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.SageSitting img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.Button{
+    width: 50px;
+    display: flex;
+    padding: 1rem;
+    color: white;
+    aspect-ratio: 1;
+    cursor: pointer;
+    border-radius: 50%;
+    align-items: center;
+    background: #698dd4;
+    justify-content: center;
+    font-size: 2.4rem;
+}
+
+.ZenLearning{
+    max-height: 70vh;
+    flex-basis: 240px;
+    flex-grow: 0.5;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 1rem;
+    border-radius: 14px;
+    background:  #96afe1;
+    font-size: 1.13rem;
+    gap: 1.2rem;
+    transition: all 0.8s ease;
+    transform-origin: top left;
+    display: none;
+}
+
+.ZenLearn_Note input{
+    font-size: 1.2rem;
+    width: 80%;
+    padding: 4px;
+    background: none;
+    border: none;
+    border-bottom: solid 1px #0256fc;
+    outline: none;
+    caret-color: #0256fc;
+    color: #021a49;
+}
+
+.ZenNote p span{
+    display: inline-block;
+    width: 75px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    border-right: solid 1px #0055ffb9;
+    margin: 0px 5px 0px 0px;
+}
+
+.LearntList{
+    background: #b4c6e9;
+    max-height: 75%;
+    overflow-y:scroll;
+    padding:5px 15px;
+    border-radius: 12px;
+}
+
+.ZenLearn_Head{
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: 'Petit Formal Script', cursive;
+}
+
+.zenMode div[data-index="Hide"]{
+    transform: scale(0);
+}
+
+.zenMode div[data-index="Show"]{
+    transform: scale(1);
+}
+
+.ZenGear{
+    width: 40px;
+    aspect-ratio: 1;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6e9af1;
+    color:  #052c7b;
+    font-size: 1.7rem;
+    transition: all 0.8s ease;
+}
+
+.ZenGear:hover {
+    transform: rotate(270deg);
+    color: #407efa;
+    background:  #b4c6e9;
+}

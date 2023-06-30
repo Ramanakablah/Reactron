@@ -1,9 +1,13 @@
-// import React from 'react'
-import style from "./Attention.module.css"
+import React from 'react'
+import style from "./AttentionCalmly.module.css"
+import Navbar from '../../Navbar/Navbar.jsx'
 
 const AttentionCalmly = () => {
   return (
-    <div>AttentionCalmly</div>
+    <div className={style.AttentionCalmly}>
+      
+      <Navbar color={"#000000"}/>
+    </div>
   )
 }
 

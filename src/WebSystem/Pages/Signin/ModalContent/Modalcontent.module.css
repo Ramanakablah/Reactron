@@ -1,0 +1,45 @@
+.ModalContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    text-align: center;
+    height: 100%;
+    background: rgba(172, 255, 47, 0.297);
+    border-radius: 15px;
+}
+
+.Inputs{
+    width: 100%;
+}
+
+.Inputs input{
+    border: none;
+    outline: none;
+    width: 100%;
+    border-bottom: solid 2px #00cd00;
+    font-size: 2rem;
+    padding: 1.2rem;
+    box-sizing: border-box;
+    text-align: center;
+    background: none;
+}
+
+.Warn{
+    color: red;
+    font-size: 0.8rem;
+    margin: 15px 0;
+}
+
+.Verifyit{
+    background: #00cd00;
+    color: white;
+    border-radius: 13px;
+    border: none;
+    margin: 1rem 0;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+}

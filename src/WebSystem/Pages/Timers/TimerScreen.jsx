@@ -30,7 +30,7 @@ const TimerScreen = () => {
     <div className={style.Time_Option_Wrappers}>
       <TimeCard img={Marathon} name={"Focus A thon"} color={"#d44202"} Linksto={'focusathon'}/>
       <TimeCard img={Relay} name={"Focus Relay"} color={"#3a81af"} Linksto={'pomodora'}/>
-      <TimeCard img={Zen} name={"Zen mode"} color={"#fdc558"} Linksto={'pomodora'}/>
+      <TimeCard img={Zen} name={"Zen mode"} color={"#fdc558"} Linksto={'zen'}/>
       <TimeCard img={Clock} name={"Time Race"} color={"#3b3f42"} Linksto={'pomodora'}/>
     </div>
   </div>

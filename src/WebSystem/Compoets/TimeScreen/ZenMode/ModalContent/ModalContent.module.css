@@ -1,0 +1,40 @@
+.ModalContent{
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    color: #021a49;
+    padding: 12px;
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+
+.SettingOptions{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    align-items: center;
+    justify-content: center;
+}
+
+.Option_List{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.Option div{
+    font-size: 2.5rem;
+}
+
+.Option{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 0.5s ease;
+}
+
+.Option:hover{
+    transform: scale(1.25) translateY(-12px);
+}

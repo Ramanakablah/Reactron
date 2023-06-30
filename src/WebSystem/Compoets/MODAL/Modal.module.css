@@ -16,7 +16,7 @@
     backdrop-filter: blur(30px);
     border: solid 2px white;
     border-radius: 20px;
-    max-height: 60vh;
+    max-height: 75vh;
     width: 50vw;
     box-sizing: content-box;
     /* padding: 15px; */
@@ -26,8 +26,8 @@
     z-index: 1;
     border: solid 4px white;
     isolation: isolate;
-    background-color: #4159d01d;
-    background-image: linear-gradient(43deg, #0622af56 0%, #c850c05b 46%, #fea6024d 100%);
+    background-color: #ffffff;
+    /* background-image: linear-gradient(43deg, #0622af56 0%, #c850c05b 46%, #fea6024d 100%); */
 }
 
 .Modal_Body::before {

@@ -7,6 +7,7 @@ const ModalContent = ({ Current_Data, Changedata,Closeit }) => {
   const Timeband=["😀","😎","🏆","🎖️","⭐","👑"]
   const Breakband=["🤩","😎","😁","🙂"]
   const Rounds=["☁️","🍃","🌊","🔥"]
+  const Melodies = {"🌲":"INF.mp3","🌜":"Moonlight.mp3","🌏":"PE.mp3","🎧":"Passion.mp3"}
 
 useEffect(()=>{
   console.log(Change_data)
@@ -50,6 +51,19 @@ useEffect(()=>{
             <span>{elem}</span>
             <div className={style.OptionValue}>
               {(id*2)+6} rounds
+            </div>
+          </div>
+        })}
+      </div>
+      <label htmlFor="">Melodies</label>
+      <div className={style.OptionList}>
+        {Object.keys(Melodies).map((elem,id) => {
+          return <div className={style.Options} onClick={()=>{
+            setChange_data({...Change_data,Melodyname:Melodies[elem]})
+          }}>
+            <span>{elem}</span>
+            <div className={style.OptionValue}>
+              {Melodies[elem].split(".")[0]}
             </div>
           </div>
         })}

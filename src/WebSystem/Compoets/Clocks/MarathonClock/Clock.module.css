@@ -1,11 +1,7 @@
 .Clock{
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; */
-    margin: auto;
-    width: 70vw;
     display: grid;
+    gap: 2rem;
+    /* padding: 1.2rem; */
     grid-template-columns: 1fr;
 }
 
