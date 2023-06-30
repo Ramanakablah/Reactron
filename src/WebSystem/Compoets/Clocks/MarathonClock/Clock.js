@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react'
 import { doublezero } from '../../../Methods/Doublezero'
 import Button from '../../../Widgets/Button/Button.jsx'
 import style from "./Clock.module.css"
+import { UploadTime } from '../../../APIs/Main/TIME/Timemarathon'
 
 const Clock = () => {
 
@@ -12,25 +13,47 @@ const Clock = () => {
   const ref = useRef(null);
 
   const startTimer = () => {
-      if (startcount || resumecount) {
-        let g = new Date();
-        let h = g.getHours()
-        let m = g.getMinutes();
-        let s = g.getSeconds();
-        setStarttime([h, m, s]);
-        sessionStorage.setItem("Starttime", [h, m, s].toString())
-        timecounter()
-      }
+    if (startcount || resumecount) {
+      let g = new Date();
+      let h = g.getHours()
+      let m = g.getMinutes();
+      let s = g.getSeconds();
+      setStarttime([h, m, s]);
+      sessionStorage.setItem("Starttime", [h, m, s].toString())
+      timecounter()
+    }
   }
 
-  const StopTimer=()=>{
+  const StopTimer = () => {
     setresumecount(false)
-      setCurrenttime([0, 0, 0])
-      ref.current && clearInterval(ref.current)
-      setresumecount(false)
-      document.getElementsByClassName("HourCounter")[0].style.backgroundImage = `conic-gradient(from 0deg,rgb(0, 255, 0) 2deg,rgba(0, 255, 0, 0.595) 90deg,transparent 268deg)`;
-      document.getElementsByClassName("MinuteCounter")[0].style.backgroundImage = `conic-gradient(from 0deg,rgb(0, 255, 0) 2deg,rgba(0, 255, 0, 0.595) 90deg,transparent 268deg)`;
-      document.getElementsByClassName("SecondCounter")[0].style.backgroundImage = `conic-gradient(from 0deg,rgb(0, 255, 0) 2deg,rgba(0, 255, 0, 0.595) 90deg,transparent 268deg)`;
+    const x = new Date()
+    // console.log({
+    //   Date:`${x.getDate()}:${x.getMonth()+1}:${x.getFullYear()}`,
+    //   TimeArray:[
+    //     {
+    //       StartTime:`${Starttime[0]}:${Starttime[1]}:${Starttime[2]}`,
+    //       EndTime:`${x.getHours()}:${x.getMinutes()}:${x.getSeconds()}`
+    //     }
+    //     ]
+    // })
+    UploadTime({
+      Date: `${x.getDate()}-${x.getMonth() + 1}-${x.getFullYear()}`,
+      TimeArray: [
+        {
+          StartTime: `${Starttime[0]}:${Starttime[1]}:${Starttime[2]}`,
+          EndTime: `${x.getHours()}:${x.getMinutes()}:${x.getSeconds()}`,
+          TotalTime:`${Currenttime[0]}:${Currenttime[1]}:${Currenttime[2]}`
+        }
+      ]
+    }).then((res) => {
+      console.log(res)
+    })
+    setCurrenttime([0, 0, 0])
+    ref.current && clearInterval(ref.current)
+    setresumecount(false)
+    document.getElementsByClassName("HourCounter")[0].style.backgroundImage = `conic-gradient(from 0deg,rgb(0, 255, 0) 2deg,rgba(0, 255, 0, 0.595) 90deg,transparent 268deg)`;
+    document.getElementsByClassName("MinuteCounter")[0].style.backgroundImage = `conic-gradient(from 0deg,rgb(0, 255, 0) 2deg,rgba(0, 255, 0, 0.595) 90deg,transparent 268deg)`;
+    document.getElementsByClassName("SecondCounter")[0].style.backgroundImage = `conic-gradient(from 0deg,rgb(0, 255, 0) 2deg,rgba(0, 255, 0, 0.595) 90deg,transparent 268deg)`;
   }
 
   const timecounter = () => {
@@ -61,7 +84,7 @@ const Clock = () => {
         <div className={style.Time_is_ok}>{`${doublezero(Starttime[0])} : ${doublezero(Starttime[1])}`}</div>
         <div className={style.Time_is_ok_title}>Started at</div>
       </div>
-      <div className={style.Clock_Buttons} ><Button text={startcount ? "Clock In" : "Clock Out"} category={startcount ? "Success" : "Warm"} Operation={() => {setstartcount(!startcount) ; startcount?startTimer():StopTimer() }} /> <Button text={resumecount ? "Resume" : "Take a break"} Operation={() => {
+      <div className={style.Clock_Buttons} ><Button text={startcount ? "Clock In" : "Clock Out"} category={startcount ? "Success" : "Warm"} Operation={() => { setstartcount(!startcount); startcount ? startTimer() : StopTimer() }} /> <Button text={resumecount ? "Resume" : "Take a break"} Operation={() => {
         if (!resumecount) {
           ref.current && clearInterval(ref.current)
           if (!startcount) {

@@ -8,16 +8,14 @@ import { userLogin } from '../../APIs/Main/USERS/UserLogin'
 const Login = () => {
 
     const navigate = useNavigate();
+    const [Warn, setWarn] = useState(false)
 
     const [LoginObject, setLoginobject] = useState(()=>{ 
-        console.log("hey")
         return {
-        username: "alexesramn909@gmail.com",
-        password: "345678ert"
+        Email: "",
+        Password: ""
     }
 })
-   let x=1;
-   console.log(x++)
 
     const HandleChange = (e) => {
         setLoginobject( { ...LoginObject, [e.target.name]: e.target.value })
@@ -69,20 +67,28 @@ const Login = () => {
                     <div className={style.Login_Head}>Login</div>
                     <div className={style.Form_Body}>
                         <label htmlFor="">Username</label>
-                        <input type="text" name="username" value={LoginObject.username} onChange={HandleChange} />
+                        <input type="text" name="Email" value={LoginObject.Email} onChange={HandleChange} />
                         <label htmlFor="">Password</label>
-                        <input type="password" name="password" value={LoginObject.password} onChange={HandleChange} />
+                        <input type="password" name="Password" value={LoginObject.Password} onChange={HandleChange} />
                     </div>
+                    {Warn && <div className={style.Warn}>Entered credentials are incorrect try again with correct credentials</div>}
                     <div className={style.Option_Buttons}>
                         <Button
                             text={"Submit"}
                             category={"Success"}
                             Operation={() => {
-                                navigate("/timers") 
-                                // userLogin(LoginObject).then((resp)=>{
-                                    // if(resp.status==="Success"){
-                                    // }
-                                // })
+                                userLogin(LoginObject).then((resp)=>{
+                                    if(resp.status==="Success"){
+                                        sessionStorage.setItem("Token",resp.data.Token)
+                                        navigate("/timers") 
+                                    }
+                                    else{
+                                        setWarn(true)
+                                        setTimeout(() => {
+                                            setWarn(false)
+                                        }, 4000);
+                                    }
+                                })
                                 }}
                         />
                         <Button

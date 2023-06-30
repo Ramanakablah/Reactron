@@ -4,9 +4,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba(251, 240, 220, 0.188);
     /* background: linear-gradient(153.5deg,rgb(255, 234, 192) 50%,#45007a 50%); */
     font-family: 'Petit Formal Script', cursive;
     font-size: 1.2rem;
+    scroll-snap-align: center;
 }
 
 .SigninForm{

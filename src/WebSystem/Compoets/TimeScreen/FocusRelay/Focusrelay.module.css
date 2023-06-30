@@ -7,4 +7,6 @@
     background: #160027;
     width: 100vw;
     min-height: 100vh;
+    box-sizing: border-box;
+    padding: 2rem 0;
 }

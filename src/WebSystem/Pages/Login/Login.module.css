@@ -7,7 +7,7 @@
     background: rgba(251, 240, 220, 0.188);
     font-family: 'Petit Formal Script', cursive;
     font-size: 1.2rem;
-    /* scroll-snap-align: start; */
+    scroll-snap-align: center;
 }
 
 .Login_Left, .Login_Right{
@@ -35,6 +35,11 @@
     background: white;
     padding: 5% 7%;
     font-weight: 600;
+}
+
+.Warn{
+    font-size: 0.9rem;
+    color: red;
 }
 
 .Form_Body input{

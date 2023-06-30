@@ -12,14 +12,14 @@ const ModalContent = ({ Data }) => {
 useEffect(()=>{
     let max=0,min=24,tot=0,totm=0;
     Data.forEach(elem => {
-    if (Number(elem.duration.split(":")[0]) > max) {
-        max = Number(elem.duration.split(":")[0])
+    if (Number(elem.TotalTime?.split(":")[0]) > max) {
+        max = Number(elem.TotalTime?.split(":")[0])
     }
-    if (Number(elem.duration.split(":")[0]) < min) {
-       min = Number(elem.duration.split(":")[0])
+    if (Number(elem.TotalTime?.split(":")[0]) < min) {
+       min = Number(elem.TotalTime?.split(":")[0])
     }
-    totm+=Number(elem.duration.split(":")[1])
-    tot+=(Number(elem.duration.split(":")[0])+Math.floor(totm/60))
+    totm+=Number(elem.TotalTime?.split(":")[1])
+    tot+=(Number(elem.TotalTime?.split(":")[0])+Math.floor(totm/60))
     totm=totm%60
 })
     setMaxHrs(max)
@@ -50,14 +50,14 @@ useEffect(()=>{
                         return <div className={style.ModalContent_list_item}>
                             <div className={style.Start_Time}>
                                 <h5>Start Time</h5>
-                                <span>{elem.start}</span>
+                                <span>{elem.StartTime}</span>
                             </div>
                             <div className={style.Stop_Time}>
                                 <h5>Stop Time</h5>
-                                <span>{elem.stop}</span>
+                                <span>{elem.EndTime}</span>
                             </div>
                             <div className={style.Time}>
-                                <span>{elem.duration} H</span>
+                                <span>{elem.TotalTime} H</span>
                             </div>
 
                         </div>

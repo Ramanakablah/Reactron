@@ -8,6 +8,8 @@
     justify-content: center;
     background-color: #fae2dcd2;
     min-height: 100vh;
+    padding: 2rem 0;
+    box-sizing: border-box;
     /* background: black; */
 }
 

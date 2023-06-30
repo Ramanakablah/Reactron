@@ -7,8 +7,10 @@
     align-items: center;
     background: #4c89ff;
     flex-direction: column;
+    padding: 2rem 0;
     box-sizing: content-box;
     justify-content: flex-start;
+    box-sizing: border-box;
 }
 
 .ZenWrapper{

@@ -1,9 +1,8 @@
 .IntroSlides{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     height: 100vh;
-    width: max-content;
+    width: 100vw;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
 }
