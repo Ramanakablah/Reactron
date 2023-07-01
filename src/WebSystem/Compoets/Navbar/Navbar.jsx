@@ -19,7 +19,7 @@ const Navbar = ({color}) => {
       <div className={styles.navbar_items_wrapper}>
         {
          Object.keys(Navoptions).map((elem, ind) => {
-            return <div className={styles.nav_item}>
+            return <div className={styles.nav_item} key={ind+"_"+elem}>
               <div className={styles.nav_item_content}>
               <Link to={Navoptions[elem].link}> <div className={styles.image_wrapper} style={{background:`${color}`}}>
                    {Navoptions[elem].icon} 

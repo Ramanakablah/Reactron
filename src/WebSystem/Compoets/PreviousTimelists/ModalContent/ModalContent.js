@@ -9,24 +9,24 @@ const ModalContent = ({ Data }) => {
     const [TotalMins, setTotalMins] = useState(0)
 
 
-useEffect(()=>{
-    let max=0,min=24,tot=0,totm=0;
-    Data.forEach(elem => {
-    if (Number(elem.TotalTime?.split(":")[0]) > max) {
-        max = Number(elem.TotalTime?.split(":")[0])
-    }
-    if (Number(elem.TotalTime?.split(":")[0]) < min) {
-       min = Number(elem.TotalTime?.split(":")[0])
-    }
-    totm+=Number(elem.TotalTime?.split(":")[1])
-    tot+=(Number(elem.TotalTime?.split(":")[0])+Math.floor(totm/60))
-    totm=totm%60
-})
-    setMaxHrs(max)
-    setMinHrs(min)
-    setTotalHrs(tot)
-    setTotalMins(totm)
-},[])
+    useEffect(() => {
+        let max = 0, min = 24, tot = 0, totm = 0;
+        Data.forEach(elem => {
+            if (Number(elem.TotalTime?.split(":")[0]) > max) {
+                max = Number(elem.TotalTime?.split(":")[0])
+            }
+            if (Number(elem.TotalTime?.split(":")[0]) < min) {
+                min = Number(elem.TotalTime?.split(":")[0])
+            }
+            totm += Number(elem.TotalTime?.split(":")[1])
+            tot += (Number(elem.TotalTime?.split(":")[0]) + Math.floor(totm / 60))
+            totm = totm % 60
+        })
+        setMaxHrs(max)
+        setMinHrs(min)
+        setTotalHrs(tot)
+        setTotalMins(totm)
+    }, [])
 
     return (
         <div className={style.ModalContent}>
@@ -44,8 +44,9 @@ useEffect(()=>{
                         Your Longest slot was {doublezero(MaxHrs)} H and your shortest slot was {doublezero(MinHrs)} H.
                     </div>
                 </div>
-                <div className={style.TimeList_Wrapper}>
-                <h2>Summary</h2>
+                <div className={style.Time_Wrapper}>
+                    <h2>Summary</h2>
+                    <div className={style.TimeList_Wrapper}>
                     {Data.map((elem) => {
                         return <div className={style.ModalContent_list_item}>
                             <div className={style.Start_Time}>
@@ -59,9 +60,9 @@ useEffect(()=>{
                             <div className={style.Time}>
                                 <span>{elem.TotalTime} H</span>
                             </div>
-
                         </div>
                     })}
+                    </div>
                 </div>
             </div>
         </div>

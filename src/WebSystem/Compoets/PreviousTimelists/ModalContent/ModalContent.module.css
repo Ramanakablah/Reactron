@@ -34,8 +34,15 @@
     text-align: center;
 }
 
-.TimeList_Wrapper{
+.Time_Wrapper{
+    flex-grow: 1;
     height: 100%;
+}
+
+.TimeList_Wrapper{
+    height: max-content;
+    max-height: 50vh;
+    overflow-y: scroll;
 }
 
 .Total_Time_Hour{

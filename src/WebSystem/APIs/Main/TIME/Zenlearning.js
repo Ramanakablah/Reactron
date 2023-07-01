@@ -1,12 +1,11 @@
 import { apiCall } from "../../APICALL.JS";
 
-export async function UploadTime(body){
+export async function Zenlearningtosage(body){
     let resp = await apiCall(
-        "/time/generate-slot",
+        "/time/zen-time",
         "POST",
         null,
         body
     )
-
     return resp
 }

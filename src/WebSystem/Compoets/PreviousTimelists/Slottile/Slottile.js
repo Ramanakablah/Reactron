@@ -32,8 +32,8 @@ const Slottile = ({data,xkey,Clicked}) => {
 
   return (
     <div className={`${style.Slottile} ${`Slottile${xkey}`}`} onClick={()=>{Clicked(data)}}>
-      {data.map((elem)=>{
-        return <div className={`${style.Time_stats} ${`Time_stats${xkey}`}`}>
+      {data?.map((elem,id)=>{
+        return <div className={`${style.Time_stats} ${`Time_stats${xkey}`}`} key={id+"*"+elem.StartTime}>
         <div className={style.Time_stats_time}>Start Time<div className={style.Bold}>{elem.StartTime}</div></div>
         <div className={style.Time_stats_time}>Stop Time<div className={style.Bold}>{elem.EndTime}</div></div>
         <div className={style.Bold}> {elem.TotalTime} </div>

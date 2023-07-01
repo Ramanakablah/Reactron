@@ -14,7 +14,7 @@ const Timelist = () => {
   useEffect(()=>{
     Fetchtime().then((res)=>{
       console.log(res)
-      setTimeLissts(res)
+        setTimeLissts(res)
     })
   },[])
 
@@ -37,7 +37,7 @@ const showsummary=(Data)=>{
       </div>
       <div className={style.Timelist__list}>
         {TimeLissts?.map((elem,id)=>{
-          return<div><h2>{elem.Date}</h2>
+          return<div key={id+"+"+elem.Date}><h4>{elem.Date}</h4>
             <Slottile data={elem.TimeArray} xkey={id} Clicked={showsummary}/>
           </div>
         })

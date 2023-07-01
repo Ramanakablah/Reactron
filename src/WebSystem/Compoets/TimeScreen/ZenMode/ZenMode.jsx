@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
 import style from "./Zenmode.module.css"
-import { Link } from 'react-router-dom'
-import { doublezero } from '../../../Methods/Doublezero'
+// import { Link } from 'react-router-dom'
+// import { doublezero } from '../../../Methods/Doublezero'
 import sage from "../../../../Assets/Images/MONK.png"
 import Button from '../../../Widgets/Button/Button.jsx'
 import Modal from "../../MODAL/Modal"
 import ModalContent from './ModalContent/ModalContent.jsx'
 import Navbar from '../../Navbar/Navbar.jsx'
+import { Zenlearningtosage } from '../../../APIs/Main/TIME/Zenlearning'
+import { GetDate, GetTime, GetTime2 } from '../../../Methods/DateandTime'
+import { Learningsoftheday } from '../../../APIs/Main/TIME/FetchZenlearning'
 
 const ZenMode = () => {
   const [Timespan, setTimespan] = useState(5);
@@ -19,12 +22,21 @@ const ZenMode = () => {
   const [Show_Info, setShow_Info] = useState(false)
   const [ShowModal, setShowModal] = useState(false)
 
+useEffect(()=>{
+  UpdateList()
+},[])
+
   const Closeit = () => {
     setShowModal(false)
   }
 
+  const UpdateList=()=>{
+    Learningsoftheday().then((res)=>{
+      setList(res?.data[0]?.Learning)
+    })
+  }
+
   const Settings = (Changes) => {
-    console.log(Changes)
     setRunningTime([0, 0])
     setTimespan(Changes?.Timespan)
   }
@@ -56,6 +68,20 @@ const ZenMode = () => {
   const StopTimer = () => {
     clearInterval(ref.current)
     setstartTime(true)
+  }
+
+  const Saytosage=()=>{
+    Zenlearningtosage({
+      Date:GetDate(),
+      Learning:[
+        {
+          Time:GetTime2(),
+          Lesson:Learnt
+        }
+        ]
+    }).then((res)=>{
+      console.log(res)
+    })
   }
 
   return (<div>
@@ -105,16 +131,19 @@ const ZenMode = () => {
         <div data-index={Asked ? "Show" : "Hide"} className={`${style.ZenLearning} LearningTab`}>
           <div className={style.ZenLearn_Head}>So Dear What Have you learnt</div>
           <div className={style.ZenLearn_Note}>
-            <label htmlFor="">Enter your note at</label> <span>{Date().split(" ")[4].split(":")[0]} : {Date().split(" ")[4].split(":")[1]}</span>
+            <label htmlFor="">Enter your note at</label> <span>{GetTime()}</span>
             <input type="text" value={Learnt} onChange={(e) => {
               setLearnt(e.target.value)
             }} /> <Button category={"Success"} text={"Ok"} Operation={() => {
-              let x = [...List]
-              x.push({
-                time: `${Date().split(" ")[4].split(":")[0]} : ${Date().split(" ")[4].split(":")[1]}`,
-                note: Learnt
-              })
-              setList(x)
+              if(Learnt.length){
+                Saytosage()
+                let x = [...List]
+                x.push({
+                  Time:GetTime2(),
+                  Lesson:Learnt
+                })
+                setList(x)
+              }
               setRunningTime([0, 0])
               setLearnt("")
               setAsked(false)
@@ -124,11 +153,11 @@ const ZenMode = () => {
             }} />
           </div>
           {List.length > 0 ? <div className={style.LearntList}>
-            {List.map((elem) => {
-              return <div className={style.ZenNote}>
+            {List.map((elem,id) => {
+              return <div className={style.ZenNote} key={id+"+"+elem.Time}>
                 <p>
-                  <span>{elem.time}</span>
-                  {elem.note}
+                  <span>{elem.Time}</span>
+                  {elem.Lesson}
                 </p>
               </div>
             })}

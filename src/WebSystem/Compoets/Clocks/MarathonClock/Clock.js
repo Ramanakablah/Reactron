@@ -3,6 +3,7 @@ import { doublezero } from '../../../Methods/Doublezero'
 import Button from '../../../Widgets/Button/Button.jsx'
 import style from "./Clock.module.css"
 import { UploadTime } from '../../../APIs/Main/TIME/Timemarathon'
+import { GetDate, GetTime } from '../../../Methods/DateandTime'
 
 const Clock = () => {
 
@@ -26,7 +27,6 @@ const Clock = () => {
 
   const StopTimer = () => {
     setresumecount(false)
-    const x = new Date()
     // console.log({
     //   Date:`${x.getDate()}:${x.getMonth()+1}:${x.getFullYear()}`,
     //   TimeArray:[
@@ -37,11 +37,11 @@ const Clock = () => {
     //     ]
     // })
     UploadTime({
-      Date: `${x.getDate()}-${x.getMonth() + 1}-${x.getFullYear()}`,
+      Date: GetDate(),
       TimeArray: [
         {
           StartTime: `${Starttime[0]}:${Starttime[1]}:${Starttime[2]}`,
-          EndTime: `${x.getHours()}:${x.getMinutes()}:${x.getSeconds()}`,
+          EndTime: GetTime(),
           TotalTime:`${Currenttime[0]}:${Currenttime[1]}:${Currenttime[2]}`
         }
       ]
