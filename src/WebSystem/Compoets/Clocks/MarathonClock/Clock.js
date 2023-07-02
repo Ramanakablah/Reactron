@@ -5,7 +5,7 @@ import style from "./Clock.module.css"
 import { UploadTime } from '../../../APIs/Main/TIME/Timemarathon'
 import { GetDate, GetTime } from '../../../Methods/DateandTime'
 
-const Clock = () => {
+const Clock = ({updatelist}) => {
 
   const [Starttime, setStarttime] = useState(() => { return [0, 0, 0] })
   const [Currenttime, setCurrenttime] = useState(() => { return [0, 0, 0] })
@@ -27,15 +27,6 @@ const Clock = () => {
 
   const StopTimer = () => {
     setresumecount(false)
-    // console.log({
-    //   Date:`${x.getDate()}:${x.getMonth()+1}:${x.getFullYear()}`,
-    //   TimeArray:[
-    //     {
-    //       StartTime:`${Starttime[0]}:${Starttime[1]}:${Starttime[2]}`,
-    //       EndTime:`${x.getHours()}:${x.getMinutes()}:${x.getSeconds()}`
-    //     }
-    //     ]
-    // })
     UploadTime({
       Date: GetDate(),
       TimeArray: [
@@ -45,12 +36,13 @@ const Clock = () => {
           TotalTime:`${Currenttime[0]}:${Currenttime[1]}:${Currenttime[2]}`
         }
       ]
-    }).then((res) => {
-      console.log(res)
     })
     setCurrenttime([0, 0, 0])
     ref.current && clearInterval(ref.current)
     setresumecount(false)
+    setTimeout(() => {
+      updatelist("clock")
+    }, 500);
     document.getElementsByClassName("HourCounter")[0].style.backgroundImage = `conic-gradient(from 0deg,rgb(0, 255, 0) 2deg,rgba(0, 255, 0, 0.595) 90deg,transparent 268deg)`;
     document.getElementsByClassName("MinuteCounter")[0].style.backgroundImage = `conic-gradient(from 0deg,rgb(0, 255, 0) 2deg,rgba(0, 255, 0, 0.595) 90deg,transparent 268deg)`;
     document.getElementsByClassName("SecondCounter")[0].style.backgroundImage = `conic-gradient(from 0deg,rgb(0, 255, 0) 2deg,rgba(0, 255, 0, 0.595) 90deg,transparent 268deg)`;
@@ -69,7 +61,7 @@ const Clock = () => {
       mc.style.backgroundImage = `conic-gradient(from -${m * 6}deg,rgb(0, 255, 0) 2deg,rgba(0, 255, 0, 0.595) 90deg,transparent 268deg)`
       hc.style.backgroundImage = `conic-gradient(from -${h * 15}deg,rgb(0, 255, 0) 2deg,rgba(0, 255, 0, 0.595) 90deg,transparent 268deg)`
       setCurrenttime([h, m, s]);
-    }, 10);
+    }, 998);
     ref.current = x;
   }
 

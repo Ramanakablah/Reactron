@@ -1,23 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import style from "./Timelist.module.css"
-import Slottile from './Slottile/Slottile'
-import Modal from '../MODAL/Modal'
-import ModalContent from './ModalContent/ModalContent'
-import { Fetchtime } from '../../APIs/Main/TIME/FetchTimemarathon'
+import Slottile from '../Slottile/Slottile'
+import Modal from '../../MODAL/Modal'
+import ModalContent from '../ModalContent/ModalContent'
+import { Fetchtime } from '../../../APIs/Main/TIME/FetchTimemarathon'
+// import { useController } from '../../TimeScreen/FocusMarathon/Controllers/useController'
 
 
-const Timelist = () => {
-
+const Timelist = ({list}) => {
   const [ShowModal, setShowModal] = useState(false)
-  const [TimeLissts, setTimeLissts] = useState([])
-
-  useEffect(()=>{
-    Fetchtime().then((res)=>{
-      console.log(res)
-        setTimeLissts(res)
-    })
-  },[])
-
   const [MOdalData, setMOdalData] = useState([])
 
   const Closeit = () => {
@@ -36,7 +27,7 @@ const showsummary=(Data)=>{
         <h2>Previous Timelists</h2>
       </div>
       <div className={style.Timelist__list}>
-        {TimeLissts?.map((elem,id)=>{
+        {list?.map((elem,id)=>{
           return<div key={id+"+"+elem.Date}><h4>{elem.Date}</h4>
             <Slottile data={elem.TimeArray} xkey={id} Clicked={showsummary}/>
           </div>

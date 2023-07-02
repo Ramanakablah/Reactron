@@ -95,12 +95,12 @@ const Login = () => {
                             text={"Reset"}
                             category={"Warm"}
                         />
-                    </div>
-                    <div className={style.Other_Options}>
                         <Button
                             text={"Signup"}
                         />
                     </div>
+                    {/* <div className={style.Other_Options}>
+                    </div> */}
                 </div>
             </div>
         </div>

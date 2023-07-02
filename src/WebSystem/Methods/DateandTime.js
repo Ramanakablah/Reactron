@@ -2,7 +2,7 @@ const { doublezero } = require("./Doublezero");
 
 module.exports.GetDate=()=>{
     let x=new Date();
-    const date = `${doublezero(x.getDate())}-${doublezero(x.getMonth())}-${doublezero(x.getFullYear())}`
+    const date = `${doublezero(x.getDate())}-${doublezero(x.getMonth()+1)}-${doublezero(x.getFullYear())}`
     return date
 }
 

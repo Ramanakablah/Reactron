@@ -32,7 +32,13 @@ useEffect(()=>{
 
   const UpdateList=()=>{
     Learningsoftheday().then((res)=>{
-      setList(res?.data[0]?.Learning)
+      console.log(res)
+      if(res?.data.length===0){
+        setList([])
+      }
+      else{
+        setList(res?.data[0]?.Learning)
+      }
     })
   }
 
@@ -135,7 +141,7 @@ useEffect(()=>{
             <input type="text" value={Learnt} onChange={(e) => {
               setLearnt(e.target.value)
             }} /> <Button category={"Success"} text={"Ok"} Operation={() => {
-              if(Learnt.length){
+              if(Learnt!==""){
                 Saytosage()
                 let x = [...List]
                 x.push({
